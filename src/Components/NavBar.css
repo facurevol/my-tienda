@@ -11,8 +11,9 @@
 }
 
 .imgNavBar {
-    margin: 15px;
+    margin: 5px;
     display: flex;
     width: 40rem;
+    height: 3rem;
     
 }

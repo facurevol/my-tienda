@@ -2,7 +2,10 @@
 import React from "react";
 import "./NavBar.css";
 import logo from "./../img/casaPelgo.svg";
-export default function NavBar() {
+import CartWidget from "./CartWidget.js";
+
+
+function NavBar() {
   return (
     <div className="nav">
       <div className="imgNavBar">
@@ -30,6 +33,13 @@ export default function NavBar() {
           </a>
         </li>
       </ul>
+      <div className="nav">
+      <CartWidget />
+      </div>
+      
     </div>
+
   );
-}
+};
+
+export default NavBar;

@@ -5,8 +5,9 @@ import ItemCount from "./ItemCount.js";
 
 function Item({ greeting }) {
 
-    function addToCart(){
-        console.log('se agregan los items');
+    function addToCart(ItemCount){
+        console.log(ItemCount);
+        
    };
 
     return (

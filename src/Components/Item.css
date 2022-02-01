@@ -1,0 +1,24 @@
+.cardProductos {
+    width: 300px;
+    margin: 40px;
+    text-align: left;
+    background-color: rgb(235, 231, 231);
+}
+
+.imgCard {
+    width: 300px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 10px;
+    margin: 0px;
+}

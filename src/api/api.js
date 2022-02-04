@@ -1,4 +1,4 @@
-import placa from "../img/casaPelgo.svg";
+
 
 const productos = [
     {

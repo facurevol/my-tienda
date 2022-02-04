@@ -1,24 +1,55 @@
-.cardProductos {
-    width: 300px;
-    margin: 40px;
-    text-align: left;
-    background-color: rgb(235, 231, 231);
+.cardItems {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    width: 400px;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+  
+  .card-title {
+    margin-bottom: 0.5rem;
 }
 
-.imgCard {
-    width: 300px;
-}
 
-.price {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px;
-    margin: 0px;
-}
 
-.title {
-    font-size: 20px;
-    font-weight: normal;
-    padding: 10px;
-    margin: 0px;
-}
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    border-radius: calc(0.25rem - 1px);
+  }
+  
+  .card-img,
+  .card-img-top,
+  .card-img-bottom {
+    width: 100%;
+  }
+  
+  .card-img,
+  .card-img-top {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+  }
+  
+  .card-img,
+  .card-img-bottom {
+    border-bottom-right-radius: calc(0.25rem - 1px);
+    border-bottom-left-radius: calc(0.25rem - 1px);
+  }
+

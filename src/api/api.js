@@ -7,6 +7,7 @@ const productos = [
         description: 'Nuestros aromas están diseñados para adaptarse a las necesidades de tu marca, para que seas vos quien brinde una experiencia única a tus clientes',
         price: 400,
         img:"https://d3ugyf2ht6aenh.cloudfront.net/stores/001/208/295/products/om3131-ed36638a070df56c7e16425263913320-1024-1024.jpg",
+        categoria: 'aromas',
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ const productos = [
         description: 'Conjunto de aromatizantes para el hogar',
         price: 100,
         img: "https://http2.mlstatic.com/D_NQ_NP_2X_711515-MLA44965139979_022021-F.webp",
+        categoria: 'hogar',
     },
     {
         id: 3,
@@ -21,6 +23,7 @@ const productos = [
         description: 'Es el mejor producto para que puedas limpiar energías del hogar',
         price: 300,
         img: "https://http2.mlstatic.com/D_NQ_NP_2X_619594-MLA44085594588_112020-F.webp",
+        categoria: 'limpieza',
     },
 ];
 

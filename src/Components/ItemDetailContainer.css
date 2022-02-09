@@ -47,6 +47,11 @@ p {
     margin-bottom: 0.5rem;
   }
 
+ a{
+    color: black;
+    text-decoration: none;    
+  }
+
   .card-text {
     margin-top: -0.25rem;
     margin-bottom: 0;

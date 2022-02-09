@@ -6,7 +6,8 @@
     font-style: normal;
     display: flex;
     flex-direction: row;
-    margin-left: 1rem;  
+    margin-left: 2rem;
+    padding: 5px;  
 
 }
 
@@ -17,3 +18,14 @@
     height: 3rem;
     
 }
+
+.logo {
+    margin-left: 15px;
+    width: 6rem;
+    height: 3rem;
+    }
+
+    li a.active {
+        font-weight: bold;
+        color: rgb(119, 115, 115);
+    }

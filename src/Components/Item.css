@@ -12,18 +12,20 @@
     margin-bottom: 1rem;
     margin-right: 30px;
     margin-left: 30px;
+    text-decoration: none;
   }
 
 .card-body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
+    
 }
-  
-  .card-title {
+
+
+.card-title {
     margin-bottom: 0.5rem;
+   
 }
-
-
 
 .card-img-overlay {
     position: absolute;

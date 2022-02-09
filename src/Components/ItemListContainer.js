@@ -3,17 +3,27 @@ import "./ItemListContainer.css";
 import ItemCount from "./ItemCount.js";
 import { getProductos } from '../api/api.js';
 import ItemList from "./ItemList.js";
+import { useParams } from "react-router-dom";
 
 function Item({ greeting }) {
     const [productos, setProductos] = useState([]);
+    const {categoriaName} = useParams();
 
     useEffect(() => {
         getProductos().then(function (productos) {
             console.log(productos);
-            setProductos(productos);
+            if (!categoriaName){
+                setProductos (productos);
+            } else {
+            const productosPorCategoria = productos.filter((producto) => {
+                return producto.categoria === categoriaName;
+            });
+
+            setProductos(productosPorCategoria);
+        }
         });
 
-    }, []);
+    }, [categoriaName]);
 
     function addToCart(ItemCount) {
         console.log(ItemCount);

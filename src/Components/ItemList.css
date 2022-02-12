@@ -1,6 +1,18 @@
-.item {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-        
-  }
+.container{    
+  margin: 30px;   
+}
+/*
+.item-list-container {
+  font-family: 'Monserat', 'Helvetica Neue', sans-serif;
+  color: rgb(3, 19, 49);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: space-around;
+  
+      
+}*/

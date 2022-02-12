@@ -1,3 +1,31 @@
 .carrito{
-    margin: 1px 2px 2px 30px;
+    width: 90px;   
+    display: flex;
+    justify-content: center;    
 }
+
+.nav-carrito img{
+    width: 35px;      
+}
+
+.nav-carrito{
+    width: 20px;
+    margin: 1px 2px 2px 30px;
+    display: flex;
+    justify-content: center;    
+}
+
+.nav-cantidad p{
+    font-size: 14px;
+    font-family: 'Monserat', 'Helvetica Neue', sans-serif;
+    color:#fff; 
+    text-align: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgb(209, 12, 12);
+    display: flex;
+    
+}
+

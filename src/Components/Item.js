@@ -5,13 +5,14 @@ export default function Item({ item }) {
     return (
         <div>
             <Link to={`/producto/${item.id}`}>
-                <div key={item.id} className='cardItems'>
-                    <div className='card-img-top'>
-                        <img src={item.img} alt='Imagen del producto' className='card-img-top' />
+                <div key={item.id} className='item-container'>
+                    <div className='item-img'>
+                        <img src={item.img} alt='Imagen del producto' className='item-img' />
                     </div>
-                    <div className='card-body'>
-                        <h4 className='card-title'>{item.title}</h4>
-                        <p className='card-price'>$ {item.price}</p>
+                    <div className='detail-container'>
+                        <h6 className='item-categoria'>{item.categoria}</h6>
+                        <h4 className='item-title'>{item.title}</h4>
+                        <p className='item-price'>$ {item.price}</p>
                     </div>
                 </div>
             </Link>

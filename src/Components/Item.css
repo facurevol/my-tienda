@@ -1,31 +1,59 @@
-.cardItems {
+.container{    
+  margin: 30px;   
+}
+
+.item-container {
+  font-family: 'Monserat', 'Helvetica Neue', sans-serif;
     position: relative;
-    display: flex;
+    display: flex;   
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: #fbfbfb;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    width: 400px;
+    width: 287px;
+    height: 450px;
     border-radius: 0.25rem;
-    margin-bottom: 1rem;
-    margin-right: 30px;
-    margin-left: 30px;
+    margin-bottom: 3rem;
+    margin-right: 15px;
+    margin-left: 15px;
     text-decoration: none;
+    
   }
 
-.card-body {
+.detail-container {
     flex: 1 1 auto;
     padding: 1rem 1rem;
     
 }
 
-
-.card-title {
-    margin-bottom: 0.5rem;
+.item-categoria {
+  margin-bottom: 0.5rem;
+  font-size: 11px;
+  font-weight:bold;
+  color: #858585;
    
 }
+
+.item-title {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+   
+}
+
+
+.item-price {
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+ 
+}
+
+.item-img{
+  width: 100%;
+}
+
+
 
 .card-img-overlay {
     position: absolute;

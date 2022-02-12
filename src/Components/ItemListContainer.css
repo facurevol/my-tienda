@@ -1,20 +1,22 @@
-item-list-container {
-    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    color: rgb(3, 19, 49);
-    font-size: 1rem;
-    font-style: italic;
-    text-align: center;
-    align-content: center;
-    margin-right: 30px;
-    margin-left: 30px; 
-    width: 100%;
-    
-    
+
+
+.container{    
+    margin: 30px;   
 }
 
-.container{
-    
-    margin-right: 30px;
-    margin-left: 30px; 
-}
+
+
+.item-list-container {
+    font-family: 'Monserat', 'Helvetica Neue', sans-serif;
+    color: rgb(3, 19, 49);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: space-around;
+        
+  }
+

@@ -13,7 +13,7 @@ function App() {
         <NavBar />
       </header>
       <main>
-        <div>
+        <div className='desktop-container'>
           <Routes>
             <Route
               path="/"
@@ -33,12 +33,11 @@ function App() {
             <Route
               path="*"
               element={
-                <div>
+                <div className='desktop-container'>
                   <h2>No encontrada!</h2>
                   <Link to="/"> {'<<'} volver al home </Link>
                 </div>}
             />
-
 
           </Routes>
         </div>

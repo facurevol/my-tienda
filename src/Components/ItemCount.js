@@ -17,19 +17,20 @@ function ItemCount({ stock, initial, onAdd }) {
     }
 
     function addToCart() {
+        
         onAdd(contador);
     }
 
 
     return (
-        <div className="containerContador">
-            <div className="containerBotonAddItems">
-                <button onClick={aumentarContador}>+</button>
-                <p>{contador}</p>
+        <div className="count-container">
+            <div className="count-add-detail">
+                <div>Cantidad de Unidades: <p className="count">{contador}</p></div>
+                <button onClick={aumentarContador}>+</button>                
                 <button onClick={restarContador}>-</button>
             </div>
-            <div className="ContainerBotonAddToCart">
-                <button onClick={addToCart}>Agregar al carrito</button>
+            <div>
+                <button onClick={addToCart} className="btn btn-primary">Agregar al carrito</button>
             </div>
         </div>
 

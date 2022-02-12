@@ -1,13 +1,21 @@
 import React from "react";
 import "./CartWidget.css"
-import carrito from ".././img/cart.svg";
+import carrito from ".././img/carrito.svg";
+import { Link } from "react-router-dom";
 
 function CartWidget() {
   return (
-    
-      <div className="nav carrito">
-        <img src={carrito} alt="Carrito" /> <h3 className="nav">6</h3>
-      </div>       
+    <div className="carrito">
+      
+      <div className="nav-carrito">
+      <Link to="/cart" ><img src={carrito} alt="Carrito"/>  
+      </Link>     
+      </div>
+      <div className="nav-cantidad"><p>6</p></div>
+      
+    </div>
+
+
   );
 };
 

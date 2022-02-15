@@ -1,11 +1,13 @@
 import "./ItemDetailContainer.css"
 import ItemCount from "./ItemCount.js";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../context/CartContext";
 
 
 export default function ItemDetail({ item }) {
     const [itemCount, setItemCount] = useState();
+    const { addCart, cart } = useContext(CartContext);
 
     useEffect(()=> {
         console.log(itemCount);
@@ -13,8 +15,11 @@ export default function ItemDetail({ item }) {
 
     function addToCart(newItemCount) {        
         setItemCount(newItemCount);
+        addCart(newItemCount, item);
 
-    }
+    };
+
+    console.log(cart);
 
     return (
 

@@ -3,6 +3,7 @@ import "./CartWidget.css"
 import carrito from ".././img/carrito.svg";
 import { Link } from "react-router-dom";
 
+
 function CartWidget() {
   return (
     <div className="carrito">

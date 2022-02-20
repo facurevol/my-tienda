@@ -30,35 +30,25 @@ const CartContextProvider = ({ children }) => {
         } )
     };
 
+    const sumarItem = (id, cantidad) => {
+        console.log(cart);
+        const copia = [...cart];
+        copia.forEach((prod) => {
+          if (prod.newItemCount > 0) {
+            prod.newItemCount += 1;
+          }
+          console.log(copia);
+        });
+      };
    
-   
-    
-    const sumarItem = (id) => {
-    
-            cart.forEach((prod) => {
-                if (prod.id === id){
-                    prod.newItemCount += 1;
-                }
-        })
-    }
-    
-    const restarItem = () => {
-    
-        cart.forEach((prod) => {
-            if (prod.newItemCount > 0){
-                prod.newItemCount -= 1;
-            }
-    })
-}
-       
     
     
+
     const borrarItem = (id) => {
-        setCart (cart.filter((prod) => prod.id !== id));
-    
+      setCart(cart.filter((prod) => prod.id !== id));
     }
     
-    const sumaTotal = () => {
+    const sumaTotal = (newItemCount, item) => {
         let count = 0
         cart.forEach((prod)=> {
             count = count + prod.price * prod.newItemCount
@@ -72,7 +62,7 @@ const CartContextProvider = ({ children }) => {
 
     //console.log(cart);
     return (
-    <CartContext.Provider value={{cart, addCart, vaciarCart, borrarItem, sumarItem, restarItem, sumaTotal, sumarCantidad}}>
+    <CartContext.Provider value={{cart, addCart, vaciarCart, borrarItem, sumarItem, sumaTotal}}>
         {children}
     </CartContext.Provider>
     );

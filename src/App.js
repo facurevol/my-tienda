@@ -2,7 +2,7 @@ import './App.css';
 import NavBar from './Components/NavBar';
 import ItemListContainer from './Components/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer';
-import Cart from './Components/Cart';
+import ItemCartContainer from './Components/ItemCartContainer';
 import { Route, Routes, Link } from 'react-router-dom';
 import CartContextProvider from './context/CartContext';
 
@@ -35,7 +35,7 @@ function App() {
 
               <Route
                 path="/cart"
-                element={< Cart />}
+                element={<ItemCartContainer />}
               />
 
               <Route

@@ -1,36 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ItemCount.css";
 
-function ItemCount({ stock, initial }) {
-    const [contador, setContador] = useState(initial);
+function ItemCount({ cantidad, ojala }) {
+  const [inicial, setinicial] = useState(cantidad);
+  useEffect(() => {}, [inicial]);
 
-    function aumentarContador() {
-        if (contador < stock) {
-            setContador(contador + 1);
-        }
-    }
-
-    function restarContador() {
-        if (contador > 0) {
-            setContador(contador - 1);
-        }
-    }
-
+  function aumentarContador() {
+    setinicial(inicial + 1);
+    ojala(inicial);
     
+  }
 
+  function restarContador() {
+    setinicial(inicial - 1);
+    ojala(inicial);
+  }
 
-    return (
-        
-        <div className="count-container">
-            <div className="count-add-detail">
-                <div>Cantidad de Unidades: <p className="count">{contador}</p></div>
-                <button onClick={aumentarContador}>+</button>                
-                <button onClick={restarContador}>-</button>
-            </div>
-            
+  return (
+    <div className="count-container">
+      <div className="count-add-detail">
+        <div>
+          Cantidad de Unidades: <p className="count">{inicial}</p>
         </div>
-
-    )
-};
+        <button onClick={aumentarContador}>+</button>
+        <button onClick={restarContador}>-</button>
+      </div>
+    </div>
+  );
+}
 
 export default ItemCount;

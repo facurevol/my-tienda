@@ -12,7 +12,7 @@ const ItemCartContext = () => {
     sumarItem(id);
   }
   //console.log(cart);
-  
+
 
 
   return (
@@ -25,14 +25,14 @@ const ItemCartContext = () => {
       ) : (
         <div>
           {cart.map((productos) => (
-            <>           
-            
-            <Cart producto={productos} funcion={sumarEnCartItem} borrarItem={borrarItem} />
-           
-        <button onClick={() => borrarItem(productos.id)}>X</button>
-     
+            <>
+
+              <Cart producto={productos} funcion={sumarEnCartItem} borrarItem={borrarItem} />
+
+              <button onClick={() => borrarItem(productos.id)}>X</button>
+
             </>
-            
+
           ))}
           <div>
             <h5>Total: $ {sumaTotal()}</h5>

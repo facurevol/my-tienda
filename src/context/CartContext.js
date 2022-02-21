@@ -46,19 +46,22 @@ const CartContextProvider = ({ children }) => {
 
     const borrarItem = (id) => {
       setCart(cart.filter((prod) => prod.id !== id));
-    }
+    };
     
-    const sumaTotal = (newItemCount, item) => {
+    const [total, setTotal] = useState();
+    const sumaTotal = (cantidad, item) => {
         let count = 0
         cart.forEach((prod)=> {
             count = count + prod.price * prod.newItemCount
-        })
+        });
+        setTotal(count);
+    console.log(total);
         return count
-    }  
+    };  
 
     const vaciarCart = () => {
         setCart([]);
-    }
+    };
 
     //console.log(cart);
     return (

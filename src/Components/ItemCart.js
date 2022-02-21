@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "./ItemCount.css";
 
-function ItemCount({ cantidad, ojala }) {
+function ItemCount({ cantidad, agregar }) {
   const [inicial, setinicial] = useState(cantidad);
   useEffect(() => {}, [inicial]);
 
   function aumentarContador() {
+
     setinicial(inicial + 1);
-    ojala(inicial);
+    agregar(inicial);   
     
   }
 
   function restarContador() {
-    setinicial(inicial - 1);
-    ojala(inicial);
+
+    setinicial(inicial -1 );
+    agregar(inicial);   
+    
   }
+
+
+ 
+
+  
 
   return (
     <div className="count-container">

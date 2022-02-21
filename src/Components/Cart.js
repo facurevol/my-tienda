@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Cart.css";
 //import Item from "./Item";
 import ItemCart from "./ItemCart";
 
 const Cart = ({ producto, funcion, borrarItem }) => {
-  const [cart2, setcart2] = useState(producto.newItemCount);
+  
 
   function cambiarCantidad(cantidad) {
-    setcart2(cantidad);
+    
     funcion(producto.id, cantidad)
     
   }
@@ -27,7 +27,7 @@ const Cart = ({ producto, funcion, borrarItem }) => {
           <h4 className="producto-title">{producto.title}</h4>
         </div>
         <div className="item-categoria">
-          <ItemCart cantidad={producto.newItemCount} ojala={cambiarCantidad} />
+          <ItemCart cantidad={producto.newItemCount} agregar={cambiarCantidad} />
         </div>
         <div className="item-unidad">
           <h6 className="item-categoria">Precio Unidad:</h6>
@@ -35,7 +35,7 @@ const Cart = ({ producto, funcion, borrarItem }) => {
         </div>
         <div className="item-subTotal">
           <h6 className="item-categoria">Total:</h6>
-          <p className="item-price">$ {cart2 * producto.price}</p>
+          <p className="item-price">$ {producto.newItemCount * producto.price}</p>
         </div>
        <button onClick={borrarItem}>X</button>
       </div>

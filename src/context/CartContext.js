@@ -30,17 +30,30 @@ const CartContextProvider = ({ children }) => {
         } )
     };
 
-    const sumarItem = (id, cantidad) => {
+    const sumarItem = (id) => {
         console.log(cart);
         const copia = [...cart];
         copia.forEach((prod) => {
-          if (prod.newItemCount > 0) {
+          if (prod.id === id && prod.newItemCount > 0 ) {
             prod.newItemCount += 1;
           }
           console.log(copia);
+          sumaTotal();
         });
       };
    
+
+      const restarItem = (id) => {
+        console.log(cart);
+        const copia = [...cart];
+        copia.forEach((prod) => {
+          if (prod.id === id && prod.newItemCount > 0 ) {
+            prod.newItemCount -= 1;
+          }
+          console.log(copia);
+          sumaTotal();
+        });
+      };
     
     
 
@@ -49,15 +62,16 @@ const CartContextProvider = ({ children }) => {
     };
     
     const [total, setTotal] = useState();
-    const sumaTotal = (cantidad, item) => {
-        let count = 0
-        cart.forEach((prod)=> {
-            count = count + prod.price * prod.newItemCount
+    const sumaTotal = (newItemCount, item) => {
+        let count = 0;
+    
+        cart.forEach((prod) => {
+          count = count + prod.price * prod.newItemCount;
         });
         setTotal(count);
-    console.log(total);
-        return count
-    };  
+        console.log(total);
+        return total;
+      };
 
     const vaciarCart = () => {
         setCart([]);
@@ -65,7 +79,7 @@ const CartContextProvider = ({ children }) => {
 
     //console.log(cart);
     return (
-    <CartContext.Provider value={{cart, addCart, vaciarCart, borrarItem, sumarItem, sumaTotal}}>
+    <CartContext.Provider value={{cart, addCart, vaciarCart, borrarItem, sumarItem, restarItem, sumaTotal}}>
         {children}
     </CartContext.Provider>
     );

@@ -3,12 +3,19 @@ import "./Cart.css";
 //import Item from "./Item";
 import ItemCart from "./ItemCart";
 
-const Cart = ({ producto, funcion, borrarItem }) => {
+const Cart = ({ producto, funcion, funcion2, borrarItem }) => {
   
 
   function cambiarCantidad(cantidad) {
     
     funcion(producto.id, cantidad)
+    
+    
+  }
+  function sacarCantidad(cantidad) {
+    
+    
+    funcion2(producto.id, cantidad)
     
   }
 
@@ -27,7 +34,7 @@ const Cart = ({ producto, funcion, borrarItem }) => {
           <h4 className="producto-title">{producto.title}</h4>
         </div>
         <div className="item-categoria">
-          <ItemCart cantidad={producto.newItemCount} agregar={cambiarCantidad} />
+          <ItemCart cantidad={producto.newItemCount} agregar={cambiarCantidad} sacar={sacarCantidad}/>
         </div>
         <div className="item-unidad">
           <h6 className="item-categoria">Precio Unidad:</h6>

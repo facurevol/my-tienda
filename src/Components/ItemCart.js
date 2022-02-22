@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ItemCount.css";
 
-function ItemCount({ cantidad, agregar }) {
+function ItemCount({ cantidad, agregar, sacar }) {
   const [inicial, setinicial] = useState(cantidad);
   useEffect(() => {}, [inicial]);
 
@@ -12,17 +12,11 @@ function ItemCount({ cantidad, agregar }) {
     
   }
 
-  function restarContador() {
-
-    setinicial(inicial -1 );
-    agregar(inicial);   
-    
-  }
-
-
- 
-
-  
+  function restarContador() {  
+    if (inicial > 1) { 
+    setinicial(inicial - 1);
+    sacar(inicial);};  
+  };
 
   return (
     <div className="count-container">

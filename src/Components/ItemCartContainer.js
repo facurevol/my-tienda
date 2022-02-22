@@ -5,13 +5,19 @@ import "./Cart.css";
 import Cart from "./Cart";
 
 const ItemCartContext = () => {
-  const { cart, vaciarCart, borrarItem, sumarItem, sumaTotal } =
+  const { cart, vaciarCart, borrarItem, sumarItem, restarItem, sumaTotal } =
     useContext(CartContext);
 
   function sumarEnCartItem(id) {
     sumarItem(id);
+    //restarItem(id);
   }
-  //console.log(cart);
+
+  function restarEnCartItem(id) {
+   
+    restarItem(id);
+  }
+  
 
 
 
@@ -27,7 +33,7 @@ const ItemCartContext = () => {
           {cart.map((productos) => (
             <>
 
-              <Cart producto={productos} funcion={sumarEnCartItem} borrarItem={borrarItem} />
+              <Cart producto={productos} funcion={sumarEnCartItem} funcion2={restarEnCartItem} borrarItem={borrarItem} />
 
               <button onClick={() => borrarItem(productos.id)}>X</button>
 

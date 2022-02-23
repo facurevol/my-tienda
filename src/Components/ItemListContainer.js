@@ -3,12 +3,14 @@ import "./ItemListContainer.css";
 import { getProductos } from '../api/api.js';
 import ItemList from "./ItemList.js";
 import { useParams } from "react-router-dom";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from '../firebase';
 
 function Item({ greeting }) {
     const [productos, setProductos] = useState([]);
-    const {categoriaName} = useParams();
+    const { categoriaName } = useParams();
 
-    useEffect(() => {
+   useEffect(() => {
         getProductos().then(function (productos) {
             console.log(productos);
             if (!categoriaName){
@@ -24,7 +26,18 @@ function Item({ greeting }) {
 
     }, [categoriaName]);
 
-    
+    useEffect (() => {
+        
+        getDocs(collection(db, 'items'))
+        .then(snapshot => {
+            const productos = snapshot.docs.map( (doc) => ({ id: doc.id, ...doc.data() }))
+            console.log(productos)
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+    }, []);
 
     return (
         <div className='container'>

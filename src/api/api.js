@@ -1,6 +1,7 @@
+import { getDocs, collection } from "firebase/firestore";
+import { db } from '../firebase';
 
-
-const productos = [
+/*const productos = [
     {
         id: 1,
         title: 'Combo hogar 1',
@@ -118,7 +119,7 @@ const productos = [
         title: 'Combo baño 3',
         description: 'Nuestros aromas están diseñados para adaptarse a las necesidades de tu marca, para que seas vos quien brinde una experiencia única a tus clientes',
         price: 300,
-        img: ".././img/limpieza-07.jpg",
+        img: ".././img/Aromas-08.jpg",
         categoria: 'limpieza',
     },
     {
@@ -129,12 +130,26 @@ const productos = [
         img: ".././img/limpieza-08.jpg",
         categoria: 'limpieza',
     },
-];
+];*/
 
 const promesa = new Promise(function (resolve, reject) {
-    setTimeout(function () {
+    /*setTimeout(function () {
         resolve(productos);
-    }, 2000);
+    }, 2000);*/
+
+    getDocs(collection(db, 'items'))
+    .then(snapshot => {
+        const productos = snapshot.docs.map( (doc) => ({ id: doc.id, ...doc.data() }))
+        console.log(productos)
+        resolve (productos)
+    })
+    .catch(error => {
+        console.log(error)
+        reject(error)
+    })
+
+
+
 });
 
 function getProductos() {

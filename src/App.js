@@ -5,6 +5,7 @@ import ItemDetailContainer from './Components/ItemDetailContainer';
 import ItemCartContainer from './Components/ItemCartContainer';
 import { Route, Routes, Link } from 'react-router-dom';
 import CartContextProvider from './context/CartContext';
+import ItemOrder from './Components/ItemOrder';
 
 function App() {
 
@@ -37,6 +38,14 @@ function App() {
                 path="/cart"
                 element={<ItemCartContainer />}
               />
+
+              <Route
+                exact
+                path="/cart/compra"
+                element={<ItemOrder />}
+              />
+
+
 
               <Route
                 path="*"

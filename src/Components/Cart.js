@@ -13,8 +13,7 @@ const Cart = ({ producto, funcion, funcion2, borrarItem }) => {
     
   }
   function sacarCantidad(cantidad) {
-    
-    
+        
     funcion2(producto.id, cantidad)
     
   }

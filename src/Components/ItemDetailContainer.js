@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductos } from "../api/api.js";
+//import { getProductos } from "../api/api.js";
 import ItemDetail from "./ItemDetail.js";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from '../firebase';
@@ -11,7 +11,7 @@ export default function ItemDetailContainer () {
     const [productos, setDetail] = useState([]);
     const { productoId } = useParams();
         
-   useEffect(() => {
+   /*useEffect(() => {
         getProductos().then((productos) => {
             const producto = productos.find ((p) => p.id === parseInt (productoId));
             setDetail(producto);            
@@ -19,7 +19,7 @@ export default function ItemDetailContainer () {
             console.log (error);
         });
 
-    }, [productoId]);
+    }, [productoId]);*/
 
     useEffect (() => {
 

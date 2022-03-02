@@ -3,7 +3,7 @@ import Item from './Item';
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
-export default function ItemList({ productos }) {
+export default function ItemList({ products }) {
 const cart = useContext(CartContext);
 console.log(cart);
 
@@ -11,9 +11,9 @@ console.log(cart);
     return (
         <div className='item-list-container'>
             {
-                productos.map ( function(producto) {
+                products.map ( function(product) {
                     return (
-                        <Item key={producto.id} item={producto} />
+                        <Item key={product.id} item={product} />
                     )
                 })
             }            

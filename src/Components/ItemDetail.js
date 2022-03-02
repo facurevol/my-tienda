@@ -29,14 +29,14 @@ export default function ItemDetail({ item }) {
             </div>
             <div className="rigth-column">
                 <div className="details">
-                    <h6 className='categoria'>{item.categoria}</h6>
+                    <h6 className='categoria'>{item.category}</h6>
                     <h4 className='title'>{item.title}</h4>
                     <p className='price'>$ {item.price}</p>
                     <p className='description'>{item.description}</p>                    
                 </div>
                 <div className="card-footer">
                     { !itemCount ?                    
-                    <ItemCount stock={5} initial={1} onAdd={addToCart}/> :
+                    <ItemCount stock={item.stock} initial={1} onAdd={addToCart}/> :
                     <Link to="/cart"><button className="btn-compra">Ir al carrito</button></Link> 
                     }           
                 </div>

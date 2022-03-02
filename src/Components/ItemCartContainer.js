@@ -8,76 +8,62 @@ import { db } from "../firebase";
 
 
 
+
 const ItemCartContext = () => {
-  const { cart, vaciarCart, borrarItem, sumarItem, restarItem, sumaTotal } =
+  const { cart, deleteCart, deleteItem, addItem, subItem, totalPrice } =
     useContext(CartContext);
 
-  function sumarEnCartItem(id) {
-    sumarItem(id);
-
+  function addCartItem(id) {
+    addItem(id);
   }
 
-  function restarEnCartItem(id) {
-
-    restarItem(id);
+  function subCartItem(id) {
+    subItem(id);
   }
 
-//boton de compra que muestra el id en pantalla y vuelve al home.
-
-  let [comprado, setComprado] = useState(true);
-const Comprar = () => {
-
-console.log (comprado);
-
-  if (comprado === true) {
-    return  console.log("estoy andando")
-} 
-}
-
-
-
-
-
-
-
-
-
+  const [orderId, setOrderId] = useState('');
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [repEmail, setRepEmail] = useState('')
   const [phone, setPhone] = useState('')
 
   const handleNameChange = event => setName(event.target.value)
   const handleEmailChange = event => setEmail(event.target.value)
+  const handleRepEmailChange = event => setRepEmail(event.target.value)
   const handlePhoneChange = event => setPhone(event.target.value)
-
 
   const onSubmit = (event) => {
     event.preventDefault();
+    setLoading(true);
 
-    if (![name, email, phone].some(field => field === "")) {
+    if (![name, email, repEmail, phone].some(field => field === "")) {
 
-      const itemCollection = collection(db, 'compra')
-      const newItem = {
-        name,
-        email,
-        phone,
-        cart,
-        precio: sumaTotal(),
+      const itemCollection = collection(db, 'orders')
+      const newOrder = {
+        date: new Date(),
+        buyer: { email, name, phone },
+        items: cart,
+        total: totalPrice(),
+      };
 
-      }
-
-      addDoc(itemCollection, newItem)
-        .then(doc => {
-          console.log('se guardo correctamente', doc.id)
-
+      addDoc(itemCollection, newOrder)
+        .then((doc) => {
+          setOrderId(doc.id);
         })
         .catch(error => {
           console.log(error)
         })
+        .finally(() => {
+          setLoading(false);
+          deleteCart();
+        });
+    };
+  }
 
-
-    } else {}
-}
+  if (orderId !== '') {
+    return <h2> Este es el Id: {orderId} </h2>
+  }
 
   return (
     <div>
@@ -88,54 +74,55 @@ console.log (comprado);
         </>
       ) : (
         <div>
-          {cart.map((productos) => (
+          {cart.map((products) => (
             <>
-
-              <Cart producto={productos} funcion={sumarEnCartItem} funcion2={restarEnCartItem} borrarItem={borrarItem} />
-
-              <button onClick={() => borrarItem(productos.id)}>X</button>
-
+              <Cart product={products} functionAdd={addCartItem} functionSub={subCartItem} deleteItem={deleteItem} />
             </>
 
           ))}
+          <div className="cart-total-price">
+            <h5>Total: $ {totalPrice()}</h5>
+          </div>
+
           <div>
-            <h5>Total: $ {sumaTotal()}</h5>
+            <button onClick={deleteCart}>Vaciar carrito</button>
           </div>
 
           <div>
             <div>
               <form onSubmit={onSubmit}>
                 <div>
-                  <label>Nombre</label>
-                  <input value={name} onChange={handleNameChange} type="text" />
+                  <label>Nombre Completo</label>
+                  <input value={name} onChange={handleNameChange} type="text" placeholder="Nombre y Apellido" />
                 </div>
                 <div>
                   <label>Email</label>
-                  <input value={email} onChange={handleEmailChange} type="text" />
+                  <input value={email} onChange={handleEmailChange} type="email" placeholder="email@mail.com" />
+                </div>
+                <div>
+                  <label>Repetir Email</label>
+                  <input value={repEmail} onChange={handleRepEmailChange} type="email" placeholder="email@mail.com" />
                 </div>
                 <div>
                   <label>Telefono</label>
-                  <input value={phone} onChange={handlePhoneChange} type="text" />
+                  <input value={phone} onChange={handlePhoneChange} type="text" placeholder="+ 54 9 351 0 000000" />
                 </div>
                 <div>
 
                 </div>
-                <button type="submit">Comprar</button>
+                <button disabled={(name === '') | (email === '') | (repEmail === '') | (phone === '')} type="submit">
+                  {loading ? 'Generando orden...' : 'Finalizar compra'}
+                </button>
 
               </form>
 
             </div>
 
-            <div>
-              <button onClick={Comprar}>boton de prueba de la compra</button>
-              
-            </div>
+
 
           </div>
-          
-          <div>
-            <button onClick={vaciarCart}>Vaciar</button>
-          </div>
+
+
         </div>
       )}
     </div>

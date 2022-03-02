@@ -1,51 +1,48 @@
 import React, { useEffect, useState } from "react";
 import "./ItemListContainer.css";
-import { getProductos } from '../api/api.js';
+import { getProducts } from '../api/api.js';
 import ItemList from "./ItemList.js";
 import { useParams } from "react-router-dom";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from '../firebase';
 
 function Item({ greeting }) {
-    const [productos, setProductos] = useState([]);
-    const { categoriaName } = useParams();
+    const [products, setProducts] = useState([]);
+    const { categoryName } = useParams();
 
    useEffect(() => {
-        getProductos().then(function (productos) {
-            console.log(productos);
-            if (!categoriaName){
-                setProductos (productos);
+        getProducts().then(function (products) {
+            console.log(products);
+            if (!categoryName){
+                setProducts (products);
             } else {
-            const productosPorCategoria = productos.filter((producto) => {
-                return producto.categoria === categoriaName;
+            const categoryProducts = products.filter((product) => {
+                return product.category === categoryName;
             });
 
-            setProductos(productosPorCategoria);
+            setProducts(categoryProducts);
         }
         });
 
-    }, [categoriaName]);
-
-    useEffect (() => {
-        
         getDocs(collection(db, 'items'))
         .then(snapshot => {
-            const productos = snapshot.docs.map( (doc) => ({ id: doc.id, ...doc.data() }))
-            console.log(productos)
+            const products = snapshot.docs.map( (doc) => ({ id: doc.id, ...doc.data() }))
+            console.log(products)
         })
         .catch(error => {
             console.log(error);
         });
 
-    }, []);
+    }, [categoryName]);
 
+   
     return (
         <div className='container'>
             <div className='container'>
                 <h2>Somos Casa Pelgo!!!</h2>
                 <p>{greeting}</p>
             </div>
-            {productos.length > 0 ? <ItemList productos={productos} /> : <p>Cargando productos...</p>}            
+            {products.length > 0 ? <ItemList products={products} /> : <p>Cargando productos...</p>}            
         </div>
     );
 };

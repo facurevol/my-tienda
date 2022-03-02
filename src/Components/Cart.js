@@ -1,50 +1,48 @@
 import React from "react";
 import "./Cart.css";
-//import Item from "./Item";
 import ItemCart from "./ItemCart";
 
-const Cart = ({ producto, funcion, funcion2, borrarItem }) => {
-  
+const Cart = ({ product, functionAdd, functionSub, deleteItem }) => {
 
-  function cambiarCantidad(cantidad) {
-    
-    funcion(producto.id, cantidad)
-    
-    
-  }
-  function sacarCantidad(cantidad) {
-        
-    funcion2(producto.id, cantidad)
-    
+  function addCount(quantity) {
+    functionAdd(product.id, quantity);
   }
 
-  
-  
+  function subCount(quantity) {
+    functionSub(product.id, quantity);
+  }
+
   return (
-    <div key={producto.id} className="producto-container">
-      <div className="detail-carrito producto-img">
-        <img
-          src={producto.img}
+    <div key={product.id} className="detail-cart-container">
+      
+        <spam className="detail-cart-img">
+          <img
+          src={product.img}
           alt="Imagen del producto"
-          className="producto-img"
+          className=""
         />
-        <div className="item-title">
-          <h6 className="item-categoria">Producto:</h6>
-          <h4 className="producto-title">{producto.title}</h4>
+        </spam>
+      
+        <div className="detail-cart-title">
+          <h6 className="cart-text-titles">Producto:</h6>
+          <h4 className="cart-text-content">{product.title}</h4>
         </div>
-        <div className="item-categoria">
-          <ItemCart cantidad={producto.newItemCount} agregar={cambiarCantidad} sacar={sacarCantidad}/>
+        
+        <ItemCart stock= {product.stock} quantity={product.newItemCount} add={addCount} sub={subCount} />
+        
+        <div className="detail-cart-price">
+          <h6 className="cart-text-titles">Precio Unidad:</h6>
+          <p className="cart-text-content">$ {product.price}</p>
         </div>
-        <div className="item-unidad">
-          <h6 className="item-categoria">Precio Unidad:</h6>
-          <p className="item-price">$ {producto.price}</p>
+        <div className="detail-cart-total-price">
+          <h6 className="cart-text-titles">Total:</h6>
+          <p className="cart-text-content">$ {product.newItemCount * product.price}</p>
         </div>
-        <div className="item-subTotal">
-          <h6 className="item-categoria">Total:</h6>
-          <p className="item-price">$ {producto.newItemCount * producto.price}</p>
+        <div className="detail-cart-btn-delete-item">
+        <button className="btn-delete-item" onClick={() => deleteItem(product.id)}>X</button>
         </div>
-       <button onClick={borrarItem}>X</button>
-      </div>
+        
+     
     </div>
   );
 };

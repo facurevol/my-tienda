@@ -1,85 +1,83 @@
-import { createContext, useState } from "react";
-
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext([]);
 
 const CartContextProvider = ({ children }) => {
-    const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const storageData = localStorage.getItem('items');
+    return storageData ? JSON.parse(storageData) : [];
+});
+
+useEffect(() => {
+    window.localStorage.setItem('items', JSON.stringify(cart));
+}, [cart]);
 
     const addCart = (newItemCount, item) => {
-       // console.log(newItemCount, item);
-       if (isOnCart(item.id)) {
-           //alert('Estas sumando unidades del item en el carrito');
-           sumarCantidad (newItemCount, item);
+      
+       if (isOnCart(item.id)) {           
+           addQuantity(newItemCount, item);
        } else {
         setCart([...cart, { ...item, newItemCount }]);
        }
     };
 
     const isOnCart = (id) => {
-        const respuesta = cart.some((prod)=> prod.id === id);
-        return respuesta;
+        const answer = cart.some((prod)=> prod.id === id);
+        return answer;
     };
 
-    const sumarCantidad = (newItemCount, item) => {
-        const copia = [...cart];
-        copia.forEach((prod) => {
+    const addQuantity = (newItemCount, item) => {
+        const copy = [...cart];
+        copy.forEach((prod) => {
             if (prod.id === item.id){
                 prod.newItemCount += newItemCount;
             }
         } )
     };
 
-    const sumarItem = (id) => {
-        console.log(cart);
-        const copia = [...cart];
-        copia.forEach((prod) => {
+    const addItem = (id) => {
+        const copy = [...cart];
+        copy.forEach((prod) => {
           if (prod.id === id && prod.newItemCount > 0 ) {
             prod.newItemCount += 1;
           }
-          console.log(copia);
-          sumaTotal();
+          totalPrice();
         });
       };
    
-
-      const restarItem = (id) => {
-        console.log(cart);
-        const copia = [...cart];
-        copia.forEach((prod) => {
+      const subItem = (id) => {
+        const copy = [...cart];
+        copy.forEach((prod) => {
           if (prod.id === id && prod.newItemCount > 0 ) {
             prod.newItemCount -= 1;
           }
-          console.log(copia);
-          sumaTotal();
+          totalPrice();
         });
       };
-    
-    
-
-    const borrarItem = (id) => {
+      
+    const deleteItem = (id) => {
       setCart(cart.filter((prod) => prod.id !== id));
     };
     
     const [total, setTotal] = useState();
-    const sumaTotal = (newItemCount, item) => {
-        let count = 0;
-    
+    const totalPrice = () => {
+        let count = 0;    
         cart.forEach((prod) => {
           count = count + prod.price * prod.newItemCount;
         });
         setTotal(count);
-        console.log(total);
         return total;
       };
 
-    const vaciarCart = () => {
+    const deleteCart = () => {
         setCart([]);
     };
 
-    //console.log(cart);
+    const totalItems = () => {
+      return cart.reduce((prev, count) => prev + count.newItemCount, 0);
+  };
     return (
-    <CartContext.Provider value={{cart, addCart, vaciarCart, borrarItem, sumarItem, restarItem, sumaTotal}}>
+    <CartContext.Provider value={{cart, addCart, deleteCart, deleteItem, addItem, subItem, totalPrice, totalItems}}>
         {children}
     </CartContext.Provider>
     );

@@ -67,6 +67,10 @@ const ItemOrder = () => {
                 <div>
                     
                 </div>
+
+
+
+
                 <button  type="submit">Comprar</button>
             </form>
            
@@ -76,12 +80,3 @@ const ItemOrder = () => {
 }
 export default ItemOrder;
 
-/*const db = getFirestore();
-
-        const orders = db.collection('orders');
-        const newOrder = {
-            buyer: userInfo,
-            items: Cart,
-            date: firebase.firestore.Timestamp.fromDate(new Date()),
-            total: price(),
-        };*/

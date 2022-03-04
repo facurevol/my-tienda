@@ -84,36 +84,37 @@ const ItemCartContext = () => {
             <h5>Total: $ {totalPrice()}</h5>
           </div>
 
-          <div>
+          <div className="delete-cart">
             <button onClick={deleteCart}>Vaciar carrito</button>
           </div>
 
           <div>
-            <div>
+            <div className="cart-form-container">
+              <div className="cart-form-title">
+                <h2>Completar con sus datos personales para finalizar la compra</h2>
+              </div>
               <form onSubmit={onSubmit}>
-                <div>
+                <div className="cart-form-content">
                   <label>Nombre Completo</label>
                   <input value={name} onChange={handleNameChange} type="text" placeholder="Nombre y Apellido" />
                 </div>
-                <div>
+                <div className="cart-form-content">
                   <label>Email</label>
                   <input value={email} onChange={handleEmailChange} type="email" placeholder="email@mail.com" />
                 </div>
-                <div>
+                <div className="cart-form-content">
                   <label>Repetir Email</label>
                   <input value={repEmail} onChange={handleRepEmailChange} type="email" placeholder="email@mail.com" />
                 </div>
-                <div>
+                <div className="cart-form-content">
                   <label>Telefono</label>
                   <input value={phone} onChange={handlePhoneChange} type="text" placeholder="+ 54 9 351 0 000000" />
                 </div>
-                <div>
-
-                </div>
-                <button disabled={(name === '') | (email === '') | (repEmail === '') | (phone === '')} type="submit">
+                <div >                
+                {email === repEmail ? <button disabled={(name === '') | (email === '') | (repEmail === '') | (phone === '')} type="submit">
                   {loading ? 'Generando orden...' : 'Finalizar compra'}
-                </button>
-
+                </button> : <p>No coincide el Email</p>}
+                </div>
               </form>
 
             </div>

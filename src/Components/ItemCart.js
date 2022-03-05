@@ -3,18 +3,20 @@ import "./ItemCartCount.css";
 
 function ItemCount({ stock, quantity, add, sub }) {
   const [initial, setinitial] = useState(quantity);
-  useEffect(() => {}, [initial]);
+  useEffect(() => { }, [initial]);
 
   function addCount() {
-    if (initial < stock){
-    setinitial(initial + 1);
-    add(initial);       
-  };};
+    if (initial < stock) {
+      setinitial(initial + 1);
+      add(initial);
+    };
+  };
 
-  function subCount() {  
-    if (initial > 1 ) { 
-    setinitial(initial - 1);
-    sub(initial);};  
+  function subCount() {
+    if (initial > 1) {
+      setinitial(initial - 1);
+      sub(initial);
+    };
   };
 
   return (
@@ -24,14 +26,12 @@ function ItemCount({ stock, quantity, add, sub }) {
           <h6 className="count-text-titles">Cantidad de Unidades:</h6>
         </div>
         <div className="count-add-content">
-        <h4 className="count-text-content">{initial}</h4>
-        <button  onClick={addCount}>+</button>
-        <button onClick={subCount}>-</button>
+          <h4 className="count-text-content">{initial}</h4>
+          <button onClick={addCount}>+</button>
+          <button onClick={subCount}>-</button>
         </div>
-        
       </div>
-      </div>
-    
+    </div>
   );
 }
 

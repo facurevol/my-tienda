@@ -1,5 +1,7 @@
 import React from "react";
+
 import "./Cart.css";
+
 import ItemCart from "./ItemCart";
 
 const Cart = ({ product, functionAdd, functionSub, deleteItem }) => {

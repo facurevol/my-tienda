@@ -1,14 +1,15 @@
-
 import React from "react";
+
+import { Link, NavLink } from 'react-router-dom';
 import "./NavBar.css";
+
 import logo from "./../img/casaPelgo.svg";
 import CartWidget from "./CartWidget.js";
-import { Link, NavLink } from 'react-router-dom';
+
 
 function NavBar() {
   return (
     <div className="desktop-container">
-
       <div className="logo-container">
         <Link to="/">
           <img className="logo-ecommerce" src={logo} alt="Casa Pelgo" />
@@ -24,9 +25,7 @@ function NavBar() {
       <div>
         <CartWidget />
       </div>
-
     </div>
-
   );
 };
 

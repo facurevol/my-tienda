@@ -13,8 +13,7 @@
     margin-left: 1rem;
     font-size: 18px;
     align-content: center;
-    align-items: center;
-    display: grid;  
+    align-items: center;     
 }
 
 .count-add-title {    
@@ -25,6 +24,7 @@
 .count-text-titles {
     margin: 1px;    
     font-size: 11px;
+    text-align: center;
 }
   
 .count-text-content {
@@ -39,7 +39,14 @@
     border-radius: 5px;  
 }
 
-
+.count-add-content{
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+ 
 .count-add-content button {
     color: #323232;
     background-color: #E3E0E0;
@@ -53,19 +60,11 @@
     text-align: center;
     border: 1px solid transparent;    
     font-size: 14px;
-    border-radius: 1rem;   
-    
+    border-radius: 1rem;       
 }
 
 .count-add-content button:hover {
     color: #fff;
     background-color: #cccaca;
     border-color:#cccaca;
-  }
-
-
-
-
-
-
- 
+}

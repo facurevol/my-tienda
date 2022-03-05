@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
+
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
-import "./Cart.css";
-import Cart from "./Cart";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase";
+import "./Cart.css";
 
-
+import Cart from "./Cart";
 
 
 const ItemCartContext = () => {
@@ -62,16 +62,24 @@ const ItemCartContext = () => {
   }
 
   if (orderId !== '') {
-    return <h2> Este es el Id: {orderId} </h2>
+    return (
+      <div className="succes-item-order">
+        <h2>Compra finalizada</h2>
+        <h3>{name} su compra se realizo con éxito</h3>
+        <h4> En las próximas 24 horas un representante de la marca se va a comunicar al email: {email} para coordinar la entrega.</h4>
+        <p> Su número de orden es: {orderId} </p>
+        <Link to='/'><button>Confirmar</button></Link>
+      </div>
+    )
   }
 
   return (
     <div>
       {cart.length === 0 ? (
-        <>
-          <h2>No hay productos seleccionados, volver al home</h2>
-          <Link to="/">Home</Link>
-        </>
+        <div className="cart-empty">
+          <h2>No hay productos seleccionados</h2>
+          <Link to="/"><button>Volver al Home</button></Link>
+        </div>
       ) : (
         <div>
           {cart.map((products) => (
@@ -83,47 +91,40 @@ const ItemCartContext = () => {
           <div className="cart-total-price">
             <h5>Total: $ {totalPrice()}</h5>
           </div>
-
-          <div className="delete-cart">
-            <button onClick={deleteCart}>Vaciar carrito</button>
+          <div className="cart-btn-container">
+            <Link to="/" ><button className="add-items-cart-btn">Agregar items</button></Link>
+            <button className="delete-cart-btn" onClick={deleteCart}>Vaciar carrito</button>
           </div>
-
           <div>
             <div className="cart-form-container">
               <div className="cart-form-title">
-                <h2>Completar con sus datos personales para finalizar la compra</h2>
+                <h2>Completar con tus datos personales para finalizar la compra</h2>
               </div>
               <form onSubmit={onSubmit}>
                 <div className="cart-form-content">
-                  <label>Nombre Completo</label>
-                  <input value={name} onChange={handleNameChange} type="text" placeholder="Nombre y Apellido" />
+                  <label>Nombre completo del comprador:</label>
+                  <input value={name} onChange={handleNameChange} type="text" placeholder="nombre y apellido" />
                 </div>
                 <div className="cart-form-content">
-                  <label>Email</label>
-                  <input value={email} onChange={handleEmailChange} type="email" placeholder="email@mail.com" />
+                  <label>Email:</label>
+                  <input value={email} onChange={handleEmailChange} type="email" placeholder="email@tudominio.com" />
                 </div>
                 <div className="cart-form-content">
-                  <label>Repetir Email</label>
-                  <input value={repEmail} onChange={handleRepEmailChange} type="email" placeholder="email@mail.com" />
+                  <label>Repetir Email:</label>
+                  <input value={repEmail} onChange={handleRepEmailChange} type="email" placeholder="email@tudominio.com" />
                 </div>
                 <div className="cart-form-content">
-                  <label>Telefono</label>
+                  <label>Teléfono:</label>
                   <input value={phone} onChange={handlePhoneChange} type="text" placeholder="+ 54 9 351 0 000000" />
                 </div>
-                <div >                
-                {email === repEmail ? <button disabled={(name === '') | (email === '') | (repEmail === '') | (phone === '')} type="submit">
-                  {loading ? 'Generando orden...' : 'Finalizar compra'}
-                </button> : <p>No coincide el Email</p>}
+                <div className="cart-form-content">
+                  {email === repEmail ? <button disabled={(name === '') | (email === '') | (repEmail === '') | (phone === '')} type="submit">
+                    {loading ? 'Generando orden...' : 'Finalizar compra'}
+                  </button> : <p>Chequear dirección de email</p>}
                 </div>
               </form>
-
             </div>
-
-
-
           </div>
-
-
         </div>
       )}
     </div>

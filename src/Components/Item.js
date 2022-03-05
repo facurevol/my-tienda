@@ -1,5 +1,5 @@
-import './Item.css';
 import { Link } from 'react-router-dom';
+import './Item.css';
 
 export default function Item({ item }) {
     return (
@@ -14,9 +14,7 @@ export default function Item({ item }) {
                     <p className='item-price'>$ {item.price}</p>
                     <Link to={`/producto/${item.id}`}><button>Ver detalle</button></Link>
                 </div>
-            </div>
-            
+            </div>            
         </div>
-
     );
-}
+};

@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './Components/NavBar';
+import Footer from './Components/Footer';
 import ItemListContainer from './Components/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer';
 import ItemCartContainer from './Components/ItemCartContainer';
@@ -11,7 +12,7 @@ function App() {
 
   return (
 
-    <div>
+    <>
       <CartContextProvider>
         <header>
           <NavBar />
@@ -42,17 +43,20 @@ function App() {
               <Route
                 path="*"
                 element={
-                  <div className='desktop-container'>
-                    <h2>No encontrada!</h2>
-                    <Link to="/"> {'<<'} volver al home </Link>
+                  <div className='desktop-container-err'>
+                    <h2>Página no encontrada!</h2>
+                    <Link to='/'><button>Volver al home</button></Link>
                   </div>}
               />
 
             </Routes>
           </div>
         </main>
+        <footer>
+          <Footer />
+        </footer>
       </CartContextProvider>
-    </div>
+    </>
 
 
   );

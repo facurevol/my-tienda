@@ -1,0 +1,61 @@
+.desktop-container-footer{
+    max-width: var(--container-xl);
+    margin: 0px;
+    padding: 10px 0;
+    background-color: #363A3F; 
+    justify-content: center;      
+}
+
+.logo-container-footer {
+    margin: 5px;
+    display: flex;  
+    align-items: center;
+    justify-content: center;      
+}
+
+.logo-ecommerce-footer {
+    margin-top: 25px;        
+}
+
+.container-logo-redes {   
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.text-rigts{
+    text-align: left;
+    justify-content: flex-start;
+    display: flex;
+    margin-left: 30px;
+}
+
+.logo-redes {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: end;
+    display: flex;
+    margin-right: 30px;
+}
+
+.logo-redes a{
+    padding: 2px;
+}
+
+.container-logo-redes P{ 
+    color: #fff;
+    font-size: 12px;
+    text-align: left;
+} 
+
+.line-redes {
+    border-width: 0.01rem;
+    border-color: #9b9a9a;
+    margin: 30px 30px 20px 30px;
+}
+
+li a.active {
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+}

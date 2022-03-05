@@ -1,16 +1,17 @@
 .count-container {
     display: flex;
     align-items: center;
-    text-align: center;
+    text-align: center;    
 }
 
-.count-add-detail{
+.count-add-details{
     display: flex;
-    flex-direction: row;   
-
+    flex-direction: row; 
+    position: absolute;
+    bottom: 10px;  
 }
 
-.count-add-detail button {
+.count-add-details-btn {
     color: #323232;
     background-color: #E3E0E0;
     border-color: #323233;
@@ -23,77 +24,65 @@
     text-align: center;
     border: 1px solid transparent;    
     font-size: 1rem;
-    border-radius: 2rem;   
-    
+    border-radius: 2rem;       
 }
 
-.count-add-detail button:hover {
+.count-add-details button:hover {
     color: #fff;
     background-color: #cccaca;
     border-color:#cccaca;
-  }
+}
 
-
-
-.count-add-detail div {
+.count-add-details div {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-size: 16px;
+    margin-right: 4px;
 }
 
-.count-add-detail p {
+.count-add-details p {
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-.count{
     margin: 3px;
     padding: 1px 6px;
     width: 50px;
     height: 40px;
-    text-align: center;
-    align-content: center;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 5px;     
+    border-radius: 5px;  
 }
 
-
-.btn {
+.btn-primary { 
     font-family: 'Monserat', 'Helvetica Neue', sans-serif;
-    display: inline-block;
-    margin-left: 40px;   
+    display: inline-block;    
+    margin: 8px 0px 8px 40px;   
     font-weight: 400;
     line-height: 1.5;
-    color: #28ADE5;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #28ADE5;
+    border-color: #28ADE5;
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
-    cursor: pointer;    
-    background-color: transparent;
     border: 1px solid transparent;
+    cursor: pointer;    
     padding: 0.375rem 0.75rem;
-    font-size: 1rem;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
 
-  .btn-primary {
-    color: #fff;
-    background-color: #28ADE5;
-    border-color: #28ADE5;
-  }
-
-  .btn-primary:hover {
+.btn-primary:hover {
     color: #fff;
     background-color: #088cc5;
     border-color: #088cc5;
-  }
+}
 
-  .btn-compra{
+.btn-compra{
     color: #fff;
     background-color: #616161;
     border-color: #616161;
@@ -111,11 +100,10 @@
     font-size: 1rem;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  
-  }
+}
 
-  .btn-compra:hover {
+.btn-compra:hover {
     color: #fff;
     background-color: #088cc5;
     border-color: #088cc5;
-  }
+}

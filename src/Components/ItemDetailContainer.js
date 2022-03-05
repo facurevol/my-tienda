@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import ItemDetail from "./ItemDetail.js";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from '../firebase';
-
+import ItemDetail from "./ItemDetail.js";
 
 
 export default function ItemDetailContainer () {
     const [products, setDetail] = useState([]);
-    const { productId } = useParams();
-        
-  
-
+    const { productId } = useParams();      
+ 
     useEffect (() => {
 
         const productRef = doc(db, 'items', productId)
@@ -36,6 +33,4 @@ export default function ItemDetailContainer () {
         <ItemDetail key={products.id} item={products} /> 
         </div>
     )
-
-
-}
+};

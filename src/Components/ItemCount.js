@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "./ItemCount.css";
 
 function ItemCount({ stock, initial, onAdd }) {
@@ -17,25 +18,21 @@ function ItemCount({ stock, initial, onAdd }) {
     }
 
     function addToCart() {
-        
+
         onAdd(count);
     }
 
-
     return (
         <div className="count-container">
-            <div className="count-add-detail">
+            <div className="count-add-details">
                 <div>Cantidad de Unidades: <p className="count">{count}</p></div>
-                <button onClick={addCount}>+</button>                
-                <button onClick={subCount}>-</button>
-            </div>
-            <div>
-                <button onClick={addToCart} className="btn btn-primary">
-                Agregar al carrito
+                <button onClick={addCount} className="count-add-details-btn">+</button>
+                <button onClick={subCount} className="count-add-details-btn">-</button>
+                <button onClick={addToCart} className="btn-primary">
+                    Agregar al carrito
                 </button>
             </div>
         </div>
-
     )
 };
 

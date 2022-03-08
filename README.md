@@ -7,6 +7,8 @@ Simulación de compra:
 
 ### Link app: 
 
+https://xenodochial-hamilton-2c110f.netlify.app/cart
+
 ## Dependencias descargadas
 [Firebase](https://firebase.google.com)
 

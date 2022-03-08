@@ -3,7 +3,7 @@ Tienda de objetos especiales que hacen que los espacios de tu hogar sean bellos 
 
 Simulación de compra:
 
-![](https://Users/facundorevol/Downloads/ttttttt.gif)
+![CasaPelgo](public/img/esimuladorCompraCasaPelgo.gif)
 
 ### Link app: 
 
